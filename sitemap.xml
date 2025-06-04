@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://www.belladona-peluqueria.com/index.html</loc>
+    <loc>https://peluqueria-belladona.netlify.app/index.html</loc>
     <lastmod>2023-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -30,7 +30,7 @@
   </url>
 
   <url>
-    <loc>https://www.belladona-peluqueria.com/servicios.html</loc>
+    <loc>https://peluqueria-belladona.netlify.app/servicios.html</loc>
     <lastmod>2023-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -57,7 +57,7 @@
   </url>
 
   <url>
-    <loc>https://www.belladona-peluqueria.com/reservas.html</loc>
+    <loc>https://peluqueria-belladona.netlify.app/reservas.html</loc>
     <lastmod>2023-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -84,7 +84,7 @@
   </url>
 
   <url>
-    <loc>https://www.belladona-peluqueria.com/sobre-mi.html</loc>
+    <loc>https://peluqueria-belladona.netlify.app/sobre-mi.html</loc>
     <lastmod>2023-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -111,7 +111,7 @@
   </url>
 
   <url>
-    <loc>https://www.belladona-peluqueria.com/contacto.html</loc>
+    <loc>https://peluqueria-belladona.netlify.app/contacto.html</loc>
     <lastmod>2023-10-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
