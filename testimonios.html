@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Política de seguridad de contenido menos restrictiva para desarrollo -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <title>Testimonios - BellaDona</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <!-- Enlace a Google Fonts - Cookie -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <!-- Enlace a Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace a nuestro archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .testimonios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .testimonios-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .testimonios-iframe {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera con navegación y selector de idioma -->
+    <header>
+        <div class="language-selector">
+            <!-- Selector de idiomas -->
+            <a href="#" class="active" data-lang="es">ES</a>
+            <a href="#" data-lang="ca">CA</a>
+            <a href="#" data-lang="en">EN</a>
+        </div>
+        <nav>
+            <a href="index.html" class="logo">BellaDona</a>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span class="lang-es">Inicio</span><span class="lang-ca">Inici</span><span class="lang-en">Home</span></a></li>
+                <li><a href="servicios.html"><i class="fas fa-cut"></i> <span class="lang-es">Servicios</span><span class="lang-ca">Serveis</span><span class="lang-en">Services</span></a></li>
+                <li><a href="reservas.html"><i class="far fa-calendar-alt"></i> <span class="lang-es">Reservas</span><span class="lang-ca">Reserves</span><span class="lang-en">Bookings</span></a></li>
+                <li><a href="sobre-mi.html"><i class="fas fa-user"></i> <span class="lang-es">Sobre mí</span><span class="lang-ca">Sobre mi</span><span class="lang-en">About me</span></a></li>
+                <li><a href="testimonios.html" class="active"><i class="fas fa-star"></i> <span class="lang-es">Testimonios</span><span class="lang-ca">Testimonis</span><span class="lang-en">Testimonials</span></a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span class="lang-es">Contacto</span><span class="lang-ca">Contacte</span><span class="lang-en">Contact</span></a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="testimonios-container">
+        <h1 class="testimonios-title">
+            <span class="lang-es">Lo que dicen nuestros clientes</span>
+            <span class="lang-ca">El que diuen els nostres clients</span>
+            <span class="lang-en">What our clients say</span>
+        </h1>
+        
+        <!-- Widget de Google Reviews -->
+        <div class="testimonios-widget" style="min-height: 500px;">
+            <!-- Cargar el script de Elfsight de forma asíncrona -->
+            <script>
+                (function() {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'https://static.elfsight.com/platform/platform.js';
+                    s.dataset.useServiceCore = '';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+                })();
+            </script>
+            <div class="elfsight-app-1f621f33-e50e-4f27-9a88-9e82ee90b484" data-elfsight-app-lazy></div>
+            
+            <!-- Fallback en caso de que el widget no cargue -->
+            <noscript>
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; margin: 20px 0;">
+                    <p class="lang-es">Por favor, habilita JavaScript para ver los testimonios.</p>
+                    <p class="lang-ca">Si us plau, activa JavaScript per veure els testimonis.</p>
+                    <p class="lang-en">Please enable JavaScript to view the testimonials.</p>
+                </div>
+            </noscript>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>BellaDona</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Aribau 271 bajos, 08021 Barcelona</p>
+                <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@belladona.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 BellaDona. <span class="lang-es">Todos los derechos reservados</span><span class="lang-ca">Tots els drets reservats</span><span class="lang-en">All rights reserved</span>.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts externos -->
+    <script src="testimonios.js"></script>
+</body>
+</html>

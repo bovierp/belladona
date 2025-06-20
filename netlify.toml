@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_VERSION = "8"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "ALLOW-FROM https://*.elfsight.com"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Feature-Policy = "geolocation 'none'; microphone 'none'; camera 'none'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
