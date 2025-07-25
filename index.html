@@ -1,142 +1,549 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BellaDona - Peluquería</title>
-    <link rel="icon" type="image/x-icon" href="logo.ico">
-    <!-- Enlace a Google Fonts - Cookie -->
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <!-- Enlace a Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Enlace a nuestro archivo CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Peluquería BellaDona - Tu salón de belleza de confianza en Barcelona. Ofrecemos cortes, coloración, tratamientos capilares y más. ¡Reserva tu cita hoy!">
+    <meta name="keywords" content="peluquería, belleza, corte de pelo, coloración, tratamientos capilares, maquillaje, uñas, Barcelona">
+    <meta name="author" content="BellaDona">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peluqueria-belladona.netlify.app/">
+    <meta property="og:title" content="BellaDona - Peluquería Profesional">
+    <meta property="og:description" content="Descubre la mejor experiencia de peluquería en Barcelona. Cortes, coloración, tratamientos y más. ¡Reserva tu cita ahora!">
+    <meta property="og:image" content="https://peluqueria-belladona.netlify.app/img/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peluqueria-belladona.netlify.app/">
+    <meta property="twitter:title" content="BellaDona - Peluquería Profesional">
+    <meta property="twitter:description" content="Descubre la mejor experiencia de peluquería en Barcelona. Cortes, coloración, tratamientos y más. ¡Reserva tu cita ahora!">
+    <meta property="twitter:image" content="https://peluqueria-belladona.netlify.app/img/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://peluqueria-belladona.netlify.app/">
+    <meta name="google-site-verification" content="XScpcggOWd--tlfwg-T14iPSZOJkWh-dnb-ttPrle0g" />
+    
+    <title>BellaDona - Peluquería Profesional</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/faq-contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Maps API -->
+    <script>
+        let googleMapsLoaded = false;
+        
+        // Initialize Google Maps when needed
+        function loadGoogleMaps() {
+            if (googleMapsLoaded) return;
+            
+            googleMapsLoaded = true;
+            // Note: Replace YOUR_GOOGLE_MAPS_API_KEY with actual API key
+            // For now, we'll use the embedded iframe instead
+            console.log('Google Maps would be loaded here with proper API key');
+        }
+        
+        // Initialize map fallback
+        function initMap() {
+            // This function would initialize the map if API key was available
+            console.log('Map initialization function ready');
+        }
+        
+        // Load Google Maps when the contact section is in view
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const contactObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        loadGoogleMaps();
+                        contactObserver.disconnect();
+                    }
+                }, { threshold: 0.1 });
+                
+                contactObserver.observe(contactSection);
+            }
+        });
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "BellaDona Peluquería",
+      "image": "https://peluqueria-belladona.netlify.app/img/logo.png",
+      "@id": "",
+      "url": "https://peluqueria-belladona.netlify.app/",
+      "telephone": "+34931249086",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Aribau, 271",
+        "addressLocality": "Barcelona",
+        "postalCode": "08021",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.39861,
+        "longitude": 2.14861
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/belladona_peluqueria/"
+      ],
+      "description": "Peluquería profesional en Barcelona especializada en corte, color y tratamientos capilares. Con más de 15 años de experiencia, ofrecemos servicios personalizados en el barrio de Sarrià-Sant Gervasi.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Peluquería",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corte y Peinado",
+              "description": "Cortes personalizados que realzan tu belleza natural"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Coloración",
+              "description": "Técnicas de color innovadoras para un look único"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tratamientos",
+              "description": "Revitaliza tu cabello con nuestros tratamientos especializados"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
-    <!-- Cabecera con navegación y selector de idioma -->
-    <header>
-        <div class="language-selector">
-            <!-- Selector de idiomas -->
-            <a href="#" class="active" data-lang="es">ES</a>
-            <a href="#" data-lang="ca">CA</a>
-            <a href="#" data-lang="en">EN</a>
-        </div>
-        <nav>
-            <a href="index.html" class="logo">BellaDona</a>
-            <ul class="menu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> <span class="lang-es">Inicio</span><span class="lang-ca">Inici</span><span class="lang-en">Home</span></a></li>
-                <li><a href="servicios.html"><i class="fas fa-cut"></i> <span class="lang-es">Servicios</span><span class="lang-ca">Serveis</span><span class="lang-en">Services</span></a></li>
-                <li><a href="reservas.html"><i class="far fa-calendar-alt"></i> <span class="lang-es">Reservas</span><span class="lang-ca">Reserves</span><span class="lang-en">Bookings</span></a></li>
-                <li><a href="sobre-mi.html"><i class="fas fa-user"></i> <span class="lang-es">Sobre mí</span><span class="lang-ca">Sobre mi</span><span class="lang-en">About me</span></a></li>
-                <li><a href="testimonios.html"><i class="fas fa-star"></i> <span class="lang-es">Testimonios</span><span class="lang-ca">Testimonis</span><span class="lang-en">Testimonials</span></a></li>
-                <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span class="lang-es">Contacto</span><span class="lang-ca">Contacte</span><span class="lang-en">Contact</span></a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+    <!-- Skip to main content link (for screen readers) -->
+    <a href="#main-content" class="skip-link">Ir al contenido principal</a>
+    
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Menú principal">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo" aria-label="BellaDona - Inicio">
+                    <img src="img/logo.webp" alt="BellaDona Logo" width="180" height="50">
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="mobile-menu" aria-label="Menú" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="menu-icon">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </span>
+                    <span class="sr-only">Menú</span>
+                </button>
             </div>
-        </nav>
+            
+            <!-- Main Navigation -->
+            <div class="main-navigation" id="main-navigation">
+                <ul id="primary-menu" class="menu" role="menubar">
+                    <li role="none">
+                        <a href="#home" class="menu-link active" role="menuitem" data-i18n="nav.home">Inicio</a>
+                    </li>
+                    <li role="none">
+                        <a href="#services" class="menu-link" role="menuitem" data-i18n="nav.services">Servicios</a>
+                    </li>
+                    <li role="none">
+                        <a href="#reservas" class="menu-link" role="menuitem" data-i18n="nav.reservas">Reservas</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="menu-link" role="menuitem" data-i18n="nav.about">Sobre mí</a>
+                    </li>
+                    <li role="none">
+                        <a href="#testimonials" class="menu-link" role="menuitem" data-i18n="nav.testimonials">Testimonios</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="menu-link" role="menuitem" data-i18n="nav.contact">Contacto</a>
+                    </li>
+                    <li role="none">
+                        <a href="#faq" class="menu-link" role="menuitem" data-i18n="nav.faq">FAQ</a>
+                    </li>
+                </ul>
+                
+                <div class="language-selector" role="group" aria-label="Selector de idioma">
+                    <button class="lang-btn" data-lang="es" aria-label="Español" aria-current="true">
+                        <span class="flag-icon"><img src="img/flags/es.svg" alt="" width="24" height="18"></span>
+                        <span class="lang-code">ES</span>
+                    </button>
+                    <button class="lang-btn" data-lang="ca" aria-label="Català">
+                        <span class="flag-icon"><img src="img/flags/ca.svg" alt="" width="24" height="18"></span>
+                        <span class="lang-code">CA</span>
+                    </button>
+                    <button class="lang-btn" data-lang="en" aria-label="English">
+                        <span class="flag-icon"><img src="img/flags/gb.svg" alt="" width="24" height="18"></span>
+                        <span class="lang-code">EN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero" role="banner">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 data-i18n="hero.title">Tu belleza, nuestra pasión</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Descubre la mejor experiencia de peluquería</p>
+                    <a href="#reservas" class="btn btn-primary" data-i18n="hero.cta">Reserva ahora</a>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="hero.feature1">15 años de experiencia en color y corte</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="hero.feature2">Estilo transformador con técnicas avanzadas</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="hero.feature3">Productos de alta gama no testados en animales</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="hero.feature4">En Sarrià–Sant Gervasi (Zona Alta de Barcelona)</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="hero.feature5">Satisfacción 100% garantizada</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#contact" class="cta-button summer-promo" data-i18n="hero.summer_cta">
+                            <span class="cta-text">🌞 LUCE TU MEJOR LOOK ESTE VERANO ☀️ PIDE TU CITA</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Contenido principal -->
-    <main>
-        <section class="hero">
-            <div class="slogan">
-                <img src="logo.png" alt="BellaDona Logo" class="hero-logo">
-                <h1>
-                    <span class="lang-es">Tu cabello merece lo mejor</span>
-                    <span class="lang-ca">El teu cabell mereix el millor</span>
-                    <span class="lang-en">Your hair deserves the best</span>
-                </h1>
-                <h2>
-                    <span class="lang-es">Descubre la experiencia de un cuidado capilar profesional y personalizado</span>
-                    <span class="lang-ca">Descobreix l'experiència d'una cura capil·lar professional i personalitzada</span>
-                    <span class="lang-en">Discover the experience of professional and personalized hair care</span>
-                </h2>
-                <a href="reservas.html" class="btn-primary">
-                    <span class="lang-es">Reserva ahora</span>
-                    <span class="lang-ca">Reserva ara</span>
-                    <span class="lang-en">Book now</span>
-                </a>
+    <!-- Reservas Section -->
+    <section id="reservas" class="reservas" aria-labelledby="reservas-heading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="reservas-heading" data-i18n="reservas.title">Reserva tu cita</h2>
+                <p class="subtitle" data-i18n="reservas.subtitle">Agenda tu cita de forma rápida y sencilla</p>
             </div>
-        </section>
-
-        <section class="featured-services">
-            <h2 class="section-title">
-                <span class="lang-es">Nuestros servicios destacados</span>
-                <span class="lang-ca">Els nostres serveis destacats</span>
-                <span class="lang-en">Our featured services</span>
-            </h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-cut"></i>
-                    <h3>
-                        <span class="lang-es">Corte y Peinado</span>
-                        <span class="lang-ca">Tall i Pentinat</span>
-                        <span class="lang-en">Cut and Styling</span>
-                    </h3>
-                    <p>
-                        <span class="lang-es">Cortes personalizados que realzan tu belleza natural.</span>
-                        <span class="lang-ca">Talls personalitzats que realcen la teva bellesa natural.</span>
-                        <span class="lang-en">Personalized cuts that enhance your natural beauty.</span>
-                    </p>
+            
+            <div class="reservas-content">
+                <div class="reservas-info">
+                    <h3 data-i18n="reservas.info.title">¿Cómo reservar?</h3>
+                    <div class="reservas-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4 data-i18n="reservas.info.step1.title">Llámanos</h4>
+                                <p data-i18n="reservas.info.step1.description">Contacta con nosotros al 931 249 086</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4 data-i18n="reservas.info.step2.title">Elige tu servicio</h4>
+                                <p data-i18n="reservas.info.step2.description">Te ayudamos a elegir el mejor tratamiento</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4 data-i18n="reservas.info.step3.title">Confirma tu cita</h4>
+                                <p data-i18n="reservas.info.step3.description">Selecciona fecha y hora que mejor te convenga</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>
-                        <span class="lang-es">Coloración</span>
-                        <span class="lang-ca">Coloració</span>
-                        <span class="lang-en">Coloring</span>
-                    </h3>
-                    <p>
-                        <span class="lang-es">Técnicas de color innovadoras para un look único.</span>
-                        <span class="lang-ca">Tècniques de color innovadores per a un look únic.</span>
-                        <span class="lang-en">Innovative color techniques for a unique look.</span>
-                    </p>
+                
+                <div class="reservas-contact">
+                    <div class="contact-card">
+                        <h3 data-i18n="reservas.contact.title">Contacto directo</h3>
+                        <div class="contact-methods">
+                            <a href="tel:+34931249086" class="contact-method phone">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="method-label" data-i18n="reservas.contact.phone_label">Teléfono</span>
+                                    <span class="method-value" data-i18n="[html]reservas.contact.phone">931 249 086</span>
+                                </div>
+                            </a>
+                            <div class="contact-method address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span class="method-label" data-i18n="reservas.contact.address_label">Dirección</span>
+                                    <span class="method-value" data-i18n="reservas.contact.address">Peluquería Belladona | Calle Aribau, 271 | 08021 Barcelona</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hours-info">
+                            <h4 data-i18n="reservas.hours.title">Horario de atención</h4>
+                            <p data-i18n="reservas.hours.schedule">Martes a Viernes: 10:00 - 19:00</p>
+                            <p data-i18n="reservas.hours.closed">Lunes, Sábado y Domingo: Cerrado</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-spa"></i>
-                    <h3>
-                        <span class="lang-es">Tratamientos</span>
-                        <span class="lang-ca">Tractaments</span>
-                        <span class="lang-en">Treatments</span>
-                    </h3>
-                    <p>
-                        <span class="lang-es">Revitaliza tu cabello con nuestros tratamientos especializados.</span>
-                        <span class="lang-ca">Revitalitza el teu cabell amb els nostres tractaments especialitzats.</span>
-                        <span class="lang-en">Revitalize your hair with our specialized treatments.</span>
-                    </p>
-                </div>
-            </div>
-            <div class="center-btn">
-                <a href="servicios.html" class="btn-secondary">
-                    <span class="lang-es">Ver todos los servicios</span>
-                    <span class="lang-ca">Veure tots els serveis</span>
-                    <span class="lang-en">View all services</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h3>BellaDona</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Aribau 271 bajos, 08021 Barcelona</p>
-                <p><i class="fas fa-phone"></i> 931 249 086</p>
-            </div>
-            <div class="footer-social">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 BellaDona. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-ca">Tots els drets reservats.</span><span class="lang-en">All rights reserved.</span></p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services" aria-labelledby="services-heading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="services-heading" data-i18n="services.title">Nuestros servicios destacados</h2>
+            </div>
+            
+            <div class="services-grid" role="list">
+                <!-- Service 1 -->
+                <article class="service-card" role="listitem">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                            <path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="services.haircut.title">Corte y Peinado</h3>
+                        <p data-i18n="services.haircut.description">Cortes personalizados que realzan tu belleza natural.</p>
+                    </div>
+                </article>
+                
+                <!-- Service 2 -->
+                <article class="service-card" role="listitem">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="services.color.title">Coloración</h3>
+                        <p data-i18n="services.color.description">Técnicas de color innovadoras para un look único.</p>
+                    </div>
+                </article>
+                
+                <!-- Service 3 -->
+                <article class="service-card" role="listitem">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                            <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="services.treatment.title">Tratamientos</h3>
+                        <p data-i18n="services.treatment.description">Revitaliza tu cabello con nuestros tratamientos especializados.</p>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#contact" class="btn btn-primary" data-i18n="services.cta_primary">Ver todos los servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="about-heading" data-i18n="about.title">Sobre mí</h2>
+                <p class="subtitle" data-i18n="about.subtitle">Conoce a tu estilista profesional</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-i18n="about.name">BellaDona</h3>
+                    <p data-i18n="about.intro">Con más de 15 años de experiencia en el mundo de la peluquería, me especializo en crear looks únicos que realcen la belleza natural de cada cliente.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <h4 data-i18n="about.experience.title">Experiencia</h4>
+                            <p data-i18n="about.experience.description">15+ años perfeccionando técnicas de corte y coloración</p>
+                        </div>
+                        <div class="highlight">
+                            <h4 data-i18n="about.specialization.title">Especialización</h4>
+                            <p data-i18n="about.specialization.description">Técnicas avanzadas de color y tratamientos capilares</p>
+                        </div>
+                        <div class="highlight">
+                            <h4 data-i18n="about.philosophy.title">Filosofía</h4>
+                            <p data-i18n="about.philosophy.description">Cada cliente es único y merece un look personalizado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-certifications">
+                        <h4 data-i18n="about.certifications.title">Formación y Certificaciones</h4>
+                        <ul>
+                            <li data-i18n="about.certifications.item1">Certificación en técnicas de coloración avanzada</li>
+                            <li data-i18n="about.certifications.item2">Especialización en tratamientos capilares</li>
+                            <li data-i18n="about.certifications.item3">Formación continua en tendencias de moda</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <p data-i18n="about.image_alt">Foto profesional de BellaDona</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="testimonials.title">Lo que dicen nuestros clientes</h2>
+                <p class="subtitle" data-i18n="testimonials.subtitle">Experiencias reales de nuestros clientes satisfechos</p>
+            </div>
+            
+            <!-- Elfsight Google Reviews Widget -->
+            <div class="reviews-widget">
+                <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                <div class="elfsight-app-1f621f33-e50e-4f27-9a88-9e82ee90b484" data-elfsight-app-lazy></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="faq.title">Preguntas Frecuentes</h2>
+                <p class="subtitle" data-i18n="faq.subtitle">¿Tienes dudas? Aquí tienes algunas respuestas</p>
+            </div>
+            <div class="faq-container">
+                <!-- FAQ items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contact.title">Contacto</h2>
+                <p class="subtitle" data-i18n="contact.subtitle">Visítanos o contáctanos</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-i18n="contact.info.title">Información de contacto</h3>
+                    <div class="contact-details">
+                        <p class="business-address"><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.info.address">Peluquería Belladona | Calle Aribau, 271 | 08021 Barcelona</span></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+34931249086" data-i18n="[html]contact.info.phone">931 249 086</a></p>
+                    </div>
+                    <div class="opening-hours">
+                        <h4 data-i18n="contact.hours.title">Horario</h4>
+                        <p data-i18n="contact.hours.full_hours">Martes a Viernes: 10:00 - 19:00 | Lunes, Sábado y Domingo: Cerrado</p>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.874982!2d2.144664!3d41.394897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f3f!2sAribau%20271%20bajos%2C%2008021%20Barcelona%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1633036800000!5m2!1ses!2ses" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Ubicación de BellaDona en el mapa">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="footer.brand">BellaDona</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.info.address">Aribau 271 bajos, 08021 Barcelona</span></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+34931249086" data-i18n="[html]contact.info.phone">931 249 086</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.links">Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#home" data-i18n="nav.home">Inicio</a></li>
+                        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+                        <li><a href="#testimonials" data-i18n="nav.testimonials">Testimonios</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4 data-i18n="footer.social">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link facebook" data-i18n="[title]footer.social_facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link instagram" data-i18n="[title]footer.social_instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Google" class="social-link google" data-i18n="[title]footer.social_google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2025 BellaDona. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Enlace a nuestro archivo JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Update copyright year
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+    <!-- Scripts en orden correcto: primero i18n, luego seasonal_cta, luego main -->
+    <script src="js/i18n.js"></script>
+    <script src="js/seasonal_cta.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

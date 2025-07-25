@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peluqueria-belladona.netlify.app/sitemap.xml
+
