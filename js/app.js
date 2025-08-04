@@ -196,6 +196,31 @@ const i18n = {
                 contact: 'Contacte',
                 faq: 'PMF'
             },
+            about: {
+                title: 'Sobre Mi',
+                subtitle: 'Coneix la teva estilista professional',
+                name: 'BellaDona',
+                intro: 'Amb més de 15 anys d\'experiència en el món de la perruqueria, m\'especialitzo a crear looks únics que realcin la bellesa natural de cada client.',
+                experience: {
+                    title: 'Experiència',
+                    description: '15+ anys perfeccionant tècniques de tall i coloració'
+                },
+                specialization: {
+                    title: 'Especialització',
+                    description: 'Tècniques avançades de color i tractaments capil·lars'
+                },
+                philosophy: {
+                    title: 'Filosofia',
+                    description: 'Cada client és únic i mereix un look personalitzat'
+                },
+                certifications: {
+                    title: 'Formació i Certificacions',
+                    item1: 'Certificació en tècniques de coloració avançada',
+                    item2: 'Especialització en tractaments capil·lars',
+                    item3: 'Formació contínua en tendències de moda'
+                },
+                image_alt: 'Foto professional de BellaDona'
+            },
             hero: {
                 title: 'La teva bellesa, la nostra passió',
                 subtitle: 'Descobreix la millor experiència de perruqueria',
@@ -379,6 +404,31 @@ const i18n = {
                 testimonials: 'Testimonials',
                 contact: 'Contact',
                 faq: 'FAQ'
+            },
+            about: {
+                title: 'About Me',
+                subtitle: 'Meet your professional stylist',
+                name: 'BellaDona',
+                intro: 'With over 15 years of experience in the hairdressing world, I specialize in creating unique looks that enhance the natural beauty of each client.',
+                experience: {
+                    title: 'Experience',
+                    description: '15+ years perfecting cutting and coloring techniques'
+                },
+                specialization: {
+                    title: 'Specialization',
+                    description: 'Advanced coloring techniques and hair treatments'
+                },
+                philosophy: {
+                    title: 'Philosophy',
+                    description: 'Every client is unique and deserves a personalized look'
+                },
+                certifications: {
+                    title: 'Training and Certifications',
+                    item1: 'Advanced coloring techniques certification',
+                    item2: 'Specialization in hair treatments',
+                    item3: 'Continuous training in fashion trends'
+                },
+                image_alt: 'Professional photo of BellaDona'
             },
             hero: {
                 title: 'Your Beauty, Our Passion',
