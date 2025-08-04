@@ -1,4 +1,4 @@
-     // Language configuration
+// js/i18n.js
 const i18n = {
     currentLang: 'es',
     languages: {
@@ -196,6 +196,31 @@ const i18n = {
                 contact: 'Contacte',
                 faq: 'PMF'
             },
+            about: {
+                title: 'Sobre Mi',
+                subtitle: 'Coneix la teva estilista professional',
+                name: 'BellaDona',
+                intro: 'Amb més de 15 anys d\'experiència en el món de la perruqueria, m\'especialitzo a crear looks únics que realcin la bellesa natural de cada client.',
+                experience: {
+                    title: 'Experiència',
+                    description: '15+ anys perfeccionant tècniques de tall i coloració'
+                },
+                specialization: {
+                    title: 'Especialització',
+                    description: 'Tècniques avançades de color i tractaments capil·lars'
+                },
+                philosophy: {
+                    title: 'Filosofia',
+                    description: 'Cada client és únic i mereix un look personalitzat'
+                },
+                certifications: {
+                    title: 'Formació i Certificacions',
+                    item1: 'Certificació en tècniques de coloració avançada',
+                    item2: 'Especialització en tractaments capil·lars',
+                    item3: 'Formació contínua en tendències de moda'
+                },
+                image_alt: 'Foto professional de BellaDona'
+            },
             hero: {
                 title: 'La teva bellesa, la nostra passió',
                 subtitle: 'Descobreix la millor experiència de perruqueria',
@@ -276,7 +301,7 @@ const i18n = {
                             },
                             {
                                 question: 'Necessito demanar cita prèvia?',
-                                answer: 'Sí, recomanem encaridament demanar cita prèvia per assegurar-te que et podem atendre a l\'hora que millor et vagi. Si passes pel davant i tenim un forat, estarem encantades d\'atendre\'t, però no ho podem garantir.'
+                                answer: 'Sí, recomanem encaridament demanar cita prèvia per assegurar-te que et podem atendre a l\'hora que millor et vagi. Si passes per davant i tenim un forat, estarem encantades d\'atendre\'t, però no ho podem garantir.'
                             },
                             {
                                 question: 'Quina és la vostra política de cancel·lació?',
@@ -379,6 +404,31 @@ const i18n = {
                 testimonials: 'Testimonials',
                 contact: 'Contact',
                 faq: 'FAQ'
+            },
+            about: {
+                title: 'About Me',
+                subtitle: 'Meet your professional stylist',
+                name: 'BellaDona',
+                intro: 'With over 15 years of experience in the hairdressing world, I specialize in creating unique looks that enhance the natural beauty of each client.',
+                experience: {
+                    title: 'Experience',
+                    description: '15+ years perfecting cutting and coloring techniques'
+                },
+                specialization: {
+                    title: 'Specialization',
+                    description: 'Advanced coloring techniques and hair treatments'
+                },
+                philosophy: {
+                    title: 'Philosophy',
+                    description: 'Every client is unique and deserves a personalized look'
+                },
+                certifications: {
+                    title: 'Training and Certifications',
+                    item1: 'Advanced coloring techniques certification',
+                    item2: 'Specialization in hair treatments',
+                    item3: 'Continuous training in fashion trends'
+                },
+                image_alt: 'Professional photo of BellaDona'
             },
             hero: {
                 title: 'Your Beauty, Our Passion',
@@ -526,7 +576,7 @@ const i18n = {
                 info: {
                     address: 'Belladona Hairdresser | Aribau Street, 271 | 08021 Barcelona',
                     title: 'Contact Information',
-                    phone: '+34 931 24 90 86',
+                    phone: '+34 931 249 086',
                     email: 'info@belladona.com'
                 },
                 hours: {
@@ -684,3 +734,800 @@ const i18n = {
 document.addEventListener('DOMContentLoaded', () => {
     i18n.init();
 });
+
+// js/seasonal_cta.js
+/**
+ * Seasonal CTA Manager for Peluquería Belladona
+ * Manages dynamic Call-to-Action messages based on season and special events
+ */
+
+class SeasonalCTA {
+    constructor() {
+        console.log('Inicializando SeasonalCTA...');
+
+        // Elementos del CTA principal (botón grande en el hero)
+        this.heroCtaLink = document.querySelector('.hero-cta .cta-button');
+        this.heroCtaText = this.heroCtaLink ? this.heroCtaLink.querySelector('.cta-text') : null;
+
+        console.log('Elementos del CTA:', {
+            heroCtaLink: this.heroCtaLink,
+            heroCtaText: this.heroCtaText
+        });
+
+        this.currentDate = new Date();
+        this.currentYear = this.currentDate.getFullYear();
+        this.initialize();
+    }
+
+    initialize() {
+        if (!this.ctaElement) return;
+
+        const cta = this.getCurrentCTA();
+        if (cta) {
+            this.updateCTA(cta);
+        }
+    }
+
+    getCurrentCTA() {
+        // Forzar mensaje de verano para pruebas
+        return "Prepara tu cabello para el verano: Protege y repara con nuestros tratamientos post-sol. ¡Reserva ya!";
+
+        // Código original (comentado para pruebas)
+        // const specialEvent = this.checkSpecialEvents();
+        // if (specialEvent) return specialEvent;
+        // return this.getSeasonalCTA();
+    }
+
+    checkSpecialEvents() {
+        // Format: { name: string, startDate: Date, endDate: Date, cta: string }
+        const events = [
+            // January
+            {
+                name: 'Año Nuevo',
+                startDate: new Date(this.currentYear, 0, 1),
+                endDate: new Date(this.currentYear, 0, 1, 23, 59, 59),
+                cta: 'Empieza el año con un nuevo look: ¡Reserva tu cita para un cambio de imagen en peluquería Belladona!'
+            },
+            // January - Reyes (with 10-day anticipation)
+            {
+                name: 'Reyes',
+                startDate: new Date(this.currentYear - 1, 11, 27), // 10 days before
+                endDate: new Date(this.currentYear, 0, 6, 23, 59, 59),
+                cta: 'El regalo perfecto para Reyes: Sorprende con una cita en peluquería Belladona. ¡Compra aquí!'
+            },
+            // February - San Valentín
+            {
+                name: 'San Valentín',
+                startDate: new Date(this.currentYear, 1, 4), // 10 days before
+                endDate: new Date(this.currentYear, 1, 14, 23, 59, 59),
+                cta: 'Enamórate de tu cabello este San Valentín: Peinados románticos y tratamientos especiales para dos. ¡Reserva!'
+            },
+            // April - Semana Santa
+            {
+                name: 'Viernes Santo',
+                startDate: new Date(this.currentYear, 3, 8), // 10 days before
+                endDate: new Date(this.currentYear, 3, 18, 23, 59, 59), // Easter Monday
+                cta: 'Relájate esta Semana Santa: Aprovecha para cuidar tu cabello con nuestros tratamientos. ¡Agenda tu cita!'
+            },
+            // April - Sant Jordi
+            {
+                name: 'Sant Jordi',
+                startDate: new Date(this.currentYear, 3, 13), // 10 days before
+                endDate: new Date(this.currentYear, 3, 23, 23, 59, 59),
+                cta: 'Regala una rosa y un cambio de look: Sorprende este Sant Jordi con una experiencia única en peluquería Belladona.'
+            },
+            // May - Día del Trabajo
+            {
+                name: 'Día del Trabajo',
+                startDate: new Date(this.currentYear, 3, 21), // 10 days before
+                endDate: new Date(this.currentYear, 4, 1, 23, 59, 59),
+                cta: 'Día del Trabajo, día para ti: Desconecta y revitaliza tu cabello en peluquería Belladona. ¡Reserva tu momento!'
+            },
+            // June - San Juan
+            {
+                name: 'San Juan',
+                startDate: new Date(this.currentYear, 5, 14), // 10 days before
+                endDate: new Date(this.currentYear, 5, 24, 23, 59, 59),
+                cta: 'Noche de San Juan, cabello radiante: Peinados festivos y tratamientos de brillo para una noche mágica. ¡Reserva!'
+            },
+            // August - Asunción
+            {
+                name: 'La Asunción',
+                startDate: new Date(this.currentYear, 7, 5), // 10 days before
+                endDate: new Date(this.currentYear, 7, 15, 23, 59, 59),
+                cta: 'Agosto, mes de relax: Cuida tu cabello después del sol con nuestros tratamientos reparadores. ¡Reserva!'
+            },
+            // September - Diada
+            {
+                name: 'Diada Nacional de Cataluña',
+                startDate: new Date(this.currentYear, 8, 1), // 10 days before
+                endDate: new Date(this.currentYear, 8, 11, 23, 59, 59),
+                cta: 'Celebra la Diada con un nuevo estilo: ¡Reserva tu cita y luce un look espectacular!'
+            },
+            // September - La Mercè
+            {
+                name: 'Mare de Déu de la Mercè',
+                startDate: new Date(this.currentYear, 8, 14), // 10 days before
+                endDate: new Date(this.currentYear, 8, 24, 23, 59, 59),
+                cta: 'Fiestas de la Mercè, cabello impecable: Peinados y tratamientos para brillar en Barcelona. ¡Agenda tu cita!'
+            },
+            // December - Christmas (all month)
+            {
+                name: 'Navidad',
+                startDate: new Date(this.currentYear, 10, 20), // December 1st
+                endDate: new Date(this.currentYear, 11, 31, 23, 59, 59),
+                cta: 'Brilla en tus fiestas de invierno: Peinados elegantes y tratamientos de brillo para un cabello deslumbrante. ¡Reserva!'
+            }
+        ];
+
+        // Check if current date falls within any event period
+        for (const event of events) {
+            if (this.currentDate >= event.startDate && this.currentDate <= event.endDate) {
+                console.log(`Mostrando CTA para: ${event.name}`);
+                return event.cta;
+            }
+        }
+
+        return null;
+    }
+
+    getSeasonalCTA() {
+        const month = this.currentDate.getMonth() + 1; // 1-12
+
+        // Spring: March 21 - June 20
+        if ((month === 3 && this.currentDate.getDate() >= 21) ||
+            (month > 3 && month < 6) ||
+            (month === 6 && this.currentDate.getDate() <= 20)) {
+            return this.getRandomCTAPool('spring');
+        }
+        // Summer: June 21 - September 22
+        else if ((month === 6 && this.currentDate.getDate() >= 21) ||
+                 (month > 6 && month < 9) ||
+                 (month === 9 && this.currentDate.getDate() <= 22)) {
+            return this.getRandomCTAPool('summer');
+        }
+        // Autumn: September 23 - December 20
+        else if ((month === 9 && this.currentDate.getDate() >= 23) ||
+                 (month > 9 && month < 12) ||
+                 (month === 12 && this.currentDate.getDate() <= 20)) {
+            return this.getRandomCTAPool('autumn');
+        }
+        // Winter: December 21 - March 20
+        else {
+            return this.getRandomCTAPool('winter');
+        }
+    }
+
+    getRandomCTAPool(season) {
+        const ctaPools = {
+            spring: [
+                "Renueva tu look esta primavera: ¡Reserva tu cita para un cambio de color o corte!",
+                "Despierta la belleza de tu cabello: Descubre nuestros tratamientos revitalizantes para la primavera. ¡Reserva ya!",
+                "Frescura y color para tu cabello: Agenda tu balayage primaveral y luce radiante. ¡Agenda ahora!"
+            ],
+            summer: [
+                "Prepara tu cabello para el verano: Protege y repara con nuestros tratamientos post-sol. ¡Reserva ya!",
+                "Luce un cabello perfecto en tus vacaciones: Peinados veraniegos y coloración duradera. ¡Agenda tu cita!",
+                "Adiós al encrespamiento veraniego: Descubre nuestros alisados con keratina. ¡Agenda ahora!"
+            ],
+            autumn: [
+                "Colores de otoño para tu cabello: Atrévete con un cambio de tono cálido y sofisticado. ¡Reserva tu cita!",
+                "Repara tu cabello tras el verano: Nuestros tratamientos nutritivos te esperan. ¡Agenda ahora!",
+                "Bienvenido otoño, nuevo look: Descubre las tendencias en corte y color para esta temporada. ¡Reserva ya!"
+            ],
+            winter: [
+                "Brilla en tus fiestas de invierno: Peinados elegantes y tratamientos de brillo para un cabello deslumbrante. ¡Reserva!",
+                "Protege tu cabello del frío: Tratamientos intensivos para un invierno saludable. ¡Agenda tu sesión!",
+                "Regala belleza esta Navidad: Descubre nuestras tarjetas regalo para un cambio de look. ¡Reserva tu cita!"
+            ]
+        };
+
+        const pool = ctaPools[season] || [];
+        return pool.length > 0
+            ? pool[Math.floor(Math.random() * pool.length)]
+            : "¡Reserva tu cita en peluquería Belladona y luce espectacular!";
+    }
+
+    updateCTA(text) {
+        // Actualizar el CTA del hero (botón grande)
+        if (this.heroCtaText) {
+            this.heroCtaText.textContent = text;
+
+            // Actualizar clases según la temporada
+            if (this.heroCtaLink) {
+                // Eliminar clases de temporada anteriores
+                this.heroCtaLink.classList.remove('summer-promo', 'winter-promo', 'spring-promo', 'autumn-promo');
+
+                // Añadir la clase correspondiente a la temporada actual
+                const month = this.currentDate.getMonth() + 1;
+                if ((month >= 3 && month <= 5) || (month === 6 && this.currentDate.getDate() <= 20)) {
+                    this.heroCtaLink.classList.add('spring-promo');
+                } else if ((month >= 6 && month <= 8) || (month === 9 && this.currentDate.getDate() <= 22)) {
+                    this.heroCtaLink.classList.add('summer-promo');
+                } else if ((month >= 9 && month <= 11) || (month === 12 && this.currentDate.getDate() <= 20)) {
+                    this.heroCtaLink.classList.add('autumn-promo');
+                } else {
+                    this.heroCtaLink.classList.add('winter-promo');
+                }
+            }
+        }
+
+        // Actualizar el CTA de la sección de reservas (si existe)
+        if (this.reservasCtaText) {
+            this.reservasCtaText.textContent = text;
+
+            if (this.reservasCtaLink) {
+                this.reservasCtaLink.classList.remove('summer-promo', 'winter-promo', 'spring-promo', 'autumn-promo');
+                this.heroCtaLink.classList.add(this.heroCtaLink.classList[1]); // Copiar la clase de temporada del hero
+            }
+        }
+    }
+}
+
+// Forzar cambio de texto directamente
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM completamente cargado');
+
+    // Seleccionar el elemento del CTA
+    const ctaText = document.querySelector('.hero-cta .cta-button .cta-text');
+    console.log('Elemento CTA encontrado:', ctaText);
+
+    if (ctaText) {
+        console.log('Cambiando texto del CTA...');
+        ctaText.textContent = 'Prepara tu cabello para el verano: Protege y repara con nuestros tratamientos post-sol. ¡Reserva ya!';
+
+        // Actualizar clase para el estilo de verano
+        const ctaButton = document.querySelector('.hero-cta .cta-button');
+        if (ctaButton) {
+            ctaButton.classList.remove('summer-promo');
+            ctaButton.classList.add('summer-promo');
+        }
+    } else {
+        console.error('No se encontró el elemento del CTA');
+    }
+
+    // Inicializar el sistema completo
+    new SeasonalCTA();
+});
+
+// js/main.js
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM completamente cargado, inicializando aplicación...');
+
+    // Inicializar todas las funcionalidades
+    initNavigation();
+    initLanguageSelector();
+    initSmoothScrolling();
+    initNavbarScrollEffect();
+    initFAQ();
+    initBackToTop();
+
+    console.log('Aplicación inicializada correctamente');
+});
+
+// ===== NAVEGACIÓN MÓVIL =====
+function initNavigation() {
+    const mobileMenuToggle = document.getElementById('mobile-menu');
+    const mainNavigation = document.querySelector('.main-navigation');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    if (!mobileMenuToggle || !mainNavigation) {
+        console.warn('Elementos de navegación no encontrados');
+        return;
+    }
+
+    // Toggle del menú móvil
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!mainNavigation.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (mainNavigation.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    });
+
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mainNavigation.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    function toggleMobileMenu() {
+        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+        const newState = !isExpanded;
+
+        mobileMenuToggle.setAttribute('aria-expanded', newState);
+        mainNavigation.classList.toggle('active', newState);
+
+        // Prevenir scroll del body cuando el menú está abierto
+        document.body.style.overflow = newState ? 'hidden' : '';
+
+        // Crear/remover overlay
+        if (newState) {
+            createMenuOverlay();
+        } else {
+            removeMenuOverlay();
+        }
+
+        console.log('Menú móvil', newState ? 'abierto' : 'cerrado');
+    }
+
+    function closeMobileMenu() {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mainNavigation.classList.remove('active');
+        document.body.style.overflow = '';
+        removeMenuOverlay();
+    }
+
+    function createMenuOverlay() {
+        let overlay = document.querySelector('.menu-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'menu-overlay';
+            overlay.addEventListener('click', closeMobileMenu);
+            document.body.appendChild(overlay);
+        }
+        overlay.classList.add('active');
+    }
+
+    function removeMenuOverlay() {
+        const overlay = document.querySelector('.menu-overlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                if (overlay.parentNode) {
+                    overlay.parentNode.removeChild(overlay);
+                }
+            }, 300);
+        }
+    }
+}
+
+// ===== SELECTOR DE IDIOMA =====
+function initLanguageSelector() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    if (!langButtons.length) {
+        console.warn('Botones de idioma no encontrados');
+        return;
+    }
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const lang = this.getAttribute('data-lang');
+            if (!lang) return;
+
+            // Actualizar estado activo
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-current', 'false');
+            });
+
+            this.classList.add('active');
+            this.setAttribute('aria-current', 'true');
+
+            // Cambiar idioma si i18n está disponible
+            if (typeof i18n !== 'undefined' && i18n.setLanguage) {
+                i18n.setLanguage(lang);
+            }
+
+            console.log('Idioma cambiado a:', lang);
+        });
+    });
+}
+
+// ===== SCROLL SUAVE =====
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '#!') {
+                e.preventDefault();
+                return;
+            }
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+
+                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 70;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ===== EFECTO DE SCROLL EN NAVBAR =====
+function initNavbarScrollEffect() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateNavbar() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Actualizar enlaces activos
+        updateActiveNavLink();
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+}
+
+// ===== ACTUALIZAR ENLACE ACTIVO EN NAVEGACIÓN =====
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.menu-link');
+
+    if (!sections.length || !navLinks.length) return;
+
+    let currentSection = '';
+    const scrollPosition = window.scrollY + 100;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ===== FAQ ACCORDION =====
+function initFAQ() {
+    // Esperar a que i18n esté disponible
+    function waitForI18n(attempts = 0) {
+        if (typeof i18n !== 'undefined' && i18n.languages) {
+            renderFAQ();
+            setupLanguageChangeListener();
+        } else if (attempts < 20) {
+            setTimeout(() => waitForI18n(attempts + 1), 100);
+        } else {
+            console.error('No se pudo cargar i18n después de varios intentos');
+            renderFallbackFAQ();
+        }
+    }
+
+    waitForI18n();
+}
+
+function renderFAQ() {
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) {
+        console.warn('Contenedor de FAQ no encontrado');
+        return;
+    }
+
+    const currentLang = (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'es';
+    const faqData = i18n.languages[currentLang]?.faq?.categories;
+
+    if (!faqData) {
+        console.error('Datos de FAQ no encontrados para el idioma:', currentLang);
+        renderFallbackFAQ();
+        return;
+    }
+
+    // Limpiar contenido existente
+    faqContainer.innerHTML = '';
+
+    // Renderizar categorías
+    faqData.forEach((category, catIndex) => {
+        // Título de categoría
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.className = 'faq-category-title';
+        categoryTitle.textContent = category.title;
+        faqContainer.appendChild(categoryTitle);
+
+        // Preguntas de la categoría
+        category.questions.forEach((item, itemIndex) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+
+            const questionId = `faq-${catIndex}-${itemIndex}`;
+
+            faqItem.innerHTML = `
+                <button class=\"faq-question\" aria-expanded=\"false\" aria-controls=\"${questionId}\">
+                    <span class=\"faq-question-text\">${item.question}</span>
+                    <span class=\"faq-icon\" aria-hidden=\"true\">+</span>
+                </button>
+                <div class=\"faq-answer\" id=\"${questionId}\">
+                    <div class=\"faq-answer-content\">${item.answer}</div>
+                </div>
+            `;
+
+            faqContainer.appendChild(faqItem);
+        });
+    });
+
+    // Agregar event listeners
+    setupFAQEventListeners();
+    console.log('FAQ renderizado correctamente');
+}
+
+function renderFallbackFAQ() {
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) return;
+
+    const fallbackData = [
+        {
+            question: '¿Cómo puedo pedir cita?',
+            answer: 'Puedes pedir tu cita llamándonos al 931 249 086 o visitándonos en Aribau 271, Barcelona.'
+        },
+        {
+            question: '¿Cuál es vuestro horario?',
+            answer: 'Nuestro horario es de Martes a Viernes de 10:00 a 19:00. Los Lunes permanecemos cerrados.'
+        },
+        {
+            question: '¿Qué servicios ofrecéis?',
+            answer: 'Ofrecemos cortes, coloración, tratamientos capilares, peinados y mucho más.'
+        }
+    ];
+
+    faqContainer.innerHTML = '';
+
+    fallbackData.forEach((item, index) => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+
+        faqItem.innerHTML = `
+            <button class=\"faq-question\" aria-expanded=\"false\" aria-controls=\"faq-fallback-${index}\">
+                <span class=\"faq-question-text\">${item.question}</span>
+                <span class=\"faq-icon\" aria-hidden=\"true\">+</span>
+            </button>
+            <div class=\"faq-answer\" id=\"faq-fallback-${index}\">
+                <div class=\"faq-answer-content\">${item.answer}</div>
+            </div>
+        `;
+
+        faqContainer.appendChild(faqItem);
+    });
+
+    setupFAQEventListeners();
+    console.log('FAQ fallback renderizado');
+}
+
+function setupFAQEventListeners() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector('.faq-icon');
+
+            // Cerrar todas las otras preguntas
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== this) {
+                    otherQuestion.setAttribute('aria-expanded', 'false');
+                    otherQuestion.nextElementSibling.style.maxHeight = '0';
+                    otherQuestion.querySelector('.faq-icon').textContent = '+';
+                    otherQuestion.closest('.faq-item').classList.remove('active');
+                }
+            });
+
+            // Toggle pregunta actual
+            if (!isExpanded) {
+                this.setAttribute('aria-expanded', 'true');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+                this.closest('.faq-item').classList.add('active');
+            } else {
+                this.setAttribute('aria-expanded', 'false');
+                answer.style.maxHeight = '0';
+                icon.textContent = '+';
+                this.closest('.faq-item').classList.remove('active');
+            }
+        });
+    });
+}
+
+function setupLanguageChangeListener() {
+    // Escuchar cambios de idioma
+    document.addEventListener('languageChanged', function(event) {
+        if (event.detail && event.detail.newLang) {
+            setTimeout(() => {
+                renderFAQ();
+            }, 100);
+        }
+    });
+
+    // Observer para cambios en el atributo lang
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'lang') {
+                setTimeout(() => {
+                    renderFAQ();
+                }, 100);
+            }
+        });
+    });
+
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+    });
+}
+
+// ===== BOTÓN VOLVER ARRIBA =====
+function initBackToTop() {
+    // Crear botón
+    const backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.innerHTML = '<i class=\"fas fa-arrow-up\"></i>';
+    backToTop.setAttribute('aria-label', 'Volver arriba');
+    backToTop.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    `;
+
+    document.body.appendChild(backToTop);
+
+    // Mostrar/ocultar según scroll
+    let ticking = false;
+
+    function updateBackToTop() {
+        if (window.pageYOffset > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateBackToTop);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+
+    // Funcionalidad de click
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Hover effect
+    backToTop.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+        this.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.25)';
+    });
+
+    backToTop.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+    });
+}
+
+// ===== UTILIDADES =====
+
+// Función para manejar errores de carga de imágenes
+function handleImageError(img) {
+    img.style.display = 'none';
+    console.warn('Error al cargar imagen:', img.src);
+}
+
+// Función para lazy loading de imágenes
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[loading=\"lazy\"]');
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Función para optimizar el rendimiento de scroll
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Función para detectar si el usuario prefiere movimiento reducido
+function respectsReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+// Inicializar lazy loading cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initLazyLoading();
+});
+
+// Manejar errores globales de JavaScript
+window.addEventListener('error', function(e) {
+    console.error('Error de JavaScript:', e.error);
+});
+
+// Manejar promesas rechazadas
+window.addEventListener('unhandledrejection', function(e) {
+    console.error('Promesa rechazada:', e.reason);
+});
+
+console.log('main.js cargado correctamente');
