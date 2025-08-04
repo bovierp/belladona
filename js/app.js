@@ -1109,7 +1109,6 @@ function initLanguageSelector() {
     langButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            e.stopPropagation();
 
             const lang = this.getAttribute('data-lang');
             if (!lang) return;
